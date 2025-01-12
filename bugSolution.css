@@ -1,0 +1,36 @@
+/* bugSolution.css */
+
+/* Correct use of calc(): No spaces around operators */
+.element {
+  width: calc(100% - 20px);
+}
+
+/* Improved unit handling within calc():  Ensure calculated value is within container constraints */
+.container {
+  height: 300px; /* Set a defined height for the container */
+}
+
+.element2 {
+  height: calc(min(50%, 150px)); /* Use min() or max() to handle potential overflow */
+}
+
+/*Alternative approach avoiding percentage and pixels conflict, using only percentages*/
+.element3 {
+  height: calc(50% + 20%);
+}
+
+/*or using only pixels*/
+.element4 {
+  height: calc(150px + 20px);
+}
+
+/* Alternative approach using variables for better readability and maintainability */
+:root {
+  --container-height: 300px;
+  --element-height-percentage: 50%;
+  --element-height-fixed: 100px;
+}
+
+.element5 {
+  height: calc(var(--element-height-percentage) + var(--element-height-fixed));
+}
